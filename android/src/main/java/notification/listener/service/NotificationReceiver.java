@@ -25,19 +25,6 @@ public class NotificationReceiver extends BroadcastReceiver {
     @RequiresApi(api = VERSION_CODES.JELLY_BEAN_MR2)
     @Override
     public void onReceive(Context context, Intent intent) {
-        HashMap<String, Object> data2 = new HashMap<>();
-
-        Bundle extras = intent.getExtras();
-        if (extras != null) {
-            for (String key : extras.keySet()) {
-                Object value = extras.get(key);
-                data2.put(key, value);
-            }
-        }
-        for (String key : data2.keySet()) {
-            Object value = data2.get(key);
-            System.out.println(key + ": " + value);
-        }
         
         String packageName = intent.getStringExtra(PACKAGE_NAME);
         String title = intent.getStringExtra(NOTIFICATION_TITLE);
